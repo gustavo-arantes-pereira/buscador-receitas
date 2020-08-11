@@ -1,0 +1,297 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(224, 255, 255);
+    font-family: Times New Roman, Serif, Sans-serif;
+}
+
+/* Inicio do header */
+
+#cabecalho {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #a2a2a2;
+}
+
+#icone-menu {
+    margin: 1% 0 0 1%;
+    cursor: pointer;
+}
+
+#buscador {
+    width: 30%;
+    margin: 1% 1% 1% auto;
+    border: 2px solid black;
+    border-radius: 30px;
+    box-shadow: 1px 1px 5px #a2a2a2;
+    bottom: 0;
+    display: flex;
+    position: relative;
+    max-height: 28px;
+}
+
+#buscador form {
+    margin: 0 5% 0 2%;
+    width: 88.5%;
+}
+
+#buscador img {
+    width: 4%;
+    margin-left: 2%;
+    padding: 1.25% 0;
+}
+
+#buscador input {   
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    min-height: 26px;
+}
+
+#buscador input:focus {
+    outline: none;
+}
+
+/* Fim do header */
+
+/* Início do main */
+
+#quantidade-resultados {
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 2% 0;
+}
+
+.exibe-receitas {
+    position: relative;
+}
+
+.slider {
+    position: relative;
+    padding: 0 4%;
+}
+
+.mover-slider-esquerda, .mover-slider-direita {
+    position: absolute;
+    width: 4%;
+    padding: 0.5%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.mover-slider-esquerda {
+    top: 42.2%;
+    left: 0;
+}
+
+.mover-slider-direita {
+    top: 42.2%;
+    right: 0;
+}
+
+.mover-slider-esquerda img, .mover-slider-direita img {
+    width: 100%;
+}
+
+.slider:hover .mover-slider-esquerda, .slider:hover .mover-slider-direita, .slider:hover .indicador-paginas-slider {
+    opacity: 1;
+    transition: 0.6s;
+}
+
+.indicador-paginas-slider {
+    display: flex;
+    list-style: none;
+    position: absolute;
+    top: -15px;
+    right: 5%;
+    opacity: 0;
+}
+
+.indicador-paginas-slider li {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #9a9a9a;
+    margin-left: 3px;
+}
+
+.indicador-paginas-slider li.ativo {
+    background-color: #514613;
+}
+
+/* .mascara-slider { _________________________________________________________________________________________________________________________
+    overflow-x: hidden;
+} */
+
+.conteudo-slider {
+    white-space: nowrap;
+}
+    
+.flip {
+    width: 24.72%;
+    perspective: none;
+    position: relative;
+    display: inline-block;
+    /* white-space: normal; _________________________________________________________________________________________________________________
+    vertical-align: top; */
+}
+
+.flip:hover .resultado, .hover .resultado {
+    transform: rotateY(180deg);
+}
+
+.marcar-receita {
+    border: 0.51vw solid #514613;
+    position: absolute;
+    top: -4;
+    right: -4;
+    left: -4;
+    bottom: -4;
+    border-radius: 16px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.marcar-receita::after {
+    position: absolute;
+    width: 10%;
+    top: 101%;
+    left: 45%;
+    content: url('../imagens/arrow-dawn.svg');
+    color: #514613;
+    z-index: 1;
+}
+
+.resultado {    
+    padding: 0.5%;
+    border-radius: 10px;
+    min-height: 500px;
+    position: relative;
+    transition: 0.6s;
+    transform-style: preserve-3d; 
+    background-color: #e4c94c;   
+}
+
+.frente, .verso {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.frente {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: table;
+}
+
+.titulo {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.titulo-resultado {
+    padding: 0 5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #514613;
+}
+
+.verso {
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+.verso:hover .expandir-resultado {
+    opacity: 1;
+    transition: 1s ease-in;
+}
+
+.ingredientes-resultado, .preparo-resultado {    
+    padding: 0 10px;
+}
+
+.topico-verso {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.expandir-resultado {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 0 0 8px 8px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.arrow-dawn-resultado {
+    text-align: center;
+    padding: 2% 0;
+}
+
+#exibe-receita-individual {
+    width: 100%;
+    position: relative;
+}
+
+.exibe-oculto {    
+    display: none;
+}
+
+#conteudo-geral-individual {
+    min-height: 500px;
+    background-color: #e4c94c;
+    display: flex;
+    color: #514613;
+    font-size: 1.4rem;    
+}
+
+#bloco-individual-esquerda, #bloco-individual-direita {
+    width: 49.5%;    
+}
+
+#titulo-receita-individual {
+    margin: 10% 10% 0 10%;
+    text-align: center;
+    border-bottom: 1px solid #514613;
+    font-size: 2rem;
+}
+
+#ingredientes-receita-individual {    
+    margin: 0 10% 10% 10%;
+}
+
+#faixa-central {
+    width: 1px;
+    position: absolute;
+    top: 0;
+    right: 49.5%;
+    bottom: 0;
+    left: 49.9%;
+    margin: 40px auto;
+    background-color: #514613;
+}
+
+#preparo-receita-individual {
+    margin-left: 1%;
+    padding: 10%;
+}
+
+/* Fim do main */
