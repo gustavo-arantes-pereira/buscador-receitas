@@ -1,0 +1,347 @@
+@media only screen and (max-width: 2560px) {
+    #buscador{
+        width: 25%;
+        max-height: 34px;
+    }
+
+    #buscador img {
+        width: 4%;
+        margin-left: 1.5%;
+        padding: 0.8% 0;
+    }
+
+    #buscador input {
+        min-height: 30px;
+        font-size: 1.4rem;
+    }
+
+    #quantidade-resultados {
+        font-size: 2rem;
+    }
+
+    .flip {
+        width: 24.8%;
+    }
+
+    .marcar-receita {
+        border: 0.3vw solid #514613;
+        top: -4px;
+        right: -4px;
+        left: -4px;
+        bottom: -4px;
+    }
+
+    .marcar-receita::after {
+        left: 47.4%;
+    }
+
+    .resultado {
+        min-height: 600px;
+    }
+
+    .titulo-resultado {
+        font-size: 2.4rem;
+    }
+
+    .verso {
+        font-size: 1.8rem;
+    }
+
+    .topico-verso {
+        padding: 35px 0;
+        font-size: 2.1rem;
+    }
+
+    #conteudo-geral-individual {
+        font-size: 2rem;
+    }
+
+    #titulo-receita-individual {
+        font-size: 2.8rem;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    #buscador{
+        width: 30%;
+        max-height: 30px;
+    }
+
+    #buscador img {
+        width: 5%;
+        margin-left: 2%;
+        padding: 0.9% 0;
+    }
+
+    #buscador input {
+        min-height: 26px;
+        font-size: 1.2rem;
+    }
+
+    #quantidade-resultados {
+        font-size: 1.6rem;
+    }
+
+    .flip {
+        width: 24.72%;
+    }
+
+    .marcar-receita {
+        border: 0.5vw solid #514613;
+    }
+
+    .marcar-receita::after {
+        left: 45.5%;
+    }
+
+    .resultado {
+        min-height: 400px;
+    }
+
+    .titulo-resultado {
+        font-size: 1.6rem;
+    }
+
+    .verso {
+        font-size: 1.1rem;
+    }
+
+    .topico-verso {
+        padding: 20px 0;
+        font-size: 1.6rem;
+    }
+
+    #conteudo-geral-individual {
+        font-size: 2rem;
+    }
+
+    #titulo-receita-individual {
+        font-size: 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #buscador{
+        width: 34%;
+        max-height: 26px;
+    }
+
+    #buscador input {
+        min-height: 24px;
+    }
+
+    #quantidade-resultados {
+        font-size: 1.5rem;
+    }
+
+    .flip {
+        width: 24.55%;
+    }
+
+    .marcar-receita {
+        border: 0.6vw solid #514613;
+    }
+
+    .marcar-receita::after {
+        left: 43.7%;
+    }
+
+    .resultado {
+        min-height: 300px;
+    }
+
+    .titulo-resultado {
+        font-size: 1.5rem;
+    }
+
+    .verso {
+        font-size: 1rem;
+    }
+
+    .topico-verso {
+        padding: 14px 0;
+        font-size: 1.4rem;
+    }
+
+    #conteudo-geral-individual {
+        font-size: 1.1rem;
+    }
+
+    #titulo-receita-individual {
+        font-size: 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #buscador{
+        width: 36%;
+    }
+
+    #buscador img {
+        width: 6%;
+        margin-left: 2.6%;
+        padding: 1.5% 0;
+    }
+
+    #buscador input {
+        font-size: 1.1rem;
+    }
+
+    #quantidade-resultados {
+        font-size: 1.3rem;
+    }
+
+    .flip {
+        width: 24.4%;
+    }
+
+    .marcar-receita {
+        border: 0.8vw solid #514613;
+    }
+
+    .marcar-receita::after {
+        left: 42%;
+    }
+
+    .resultado {
+        min-height: 250px;
+    }
+
+    .titulo-resultado {
+        font-size: 1.1rem;
+    }
+
+    .verso {
+        font-size: 1rem;
+    }
+
+    .topico-verso {
+        font-size: 1.1rem;
+    }
+
+    #conteudo-geral-individual {
+        font-size: 1.1rem;
+    }
+
+    #titulo-receita-individual {
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    #buscador{
+        width: 38%;
+        max-height: 24px;
+    }
+
+    #buscador img {
+        width: 10%;
+        margin-left: 2.8%;
+        padding: 1.6% 0;
+    }
+
+    #buscador input {
+        min-height: 22px;
+        font-size: 1rem;
+    }
+
+    #quantidade-resultados {
+        font-size: 0.9rem;
+    }
+
+    .flip {
+        width: 24%;
+    }
+
+    .marcar-receita {
+        border: 0.9vw solid #514613;
+        top: -3px;
+        right: -3px;
+        left: -3px;
+        bottom: -3px;
+    }
+
+    .marcar-receita::after {
+        left: 35%;
+    }
+
+    .resultado {
+        min-height: 170px;
+    }
+
+    .titulo-resultado {
+        font-size: 0.8rem;
+    }
+
+    .verso {
+        font-size: 0.8rem;
+    }
+
+    .topico-verso {
+        padding: 12px 0;
+        font-size: 0.8rem;
+    }
+
+    #conteudo-geral-individual {
+        font-size: 0.8rem;
+    }
+
+    #titulo-receita-individual {
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #buscador{
+        width: 40%;
+        max-height: 22px;
+    }
+
+    #buscador img {
+        width: 11%;
+        margin-left: 3%;
+        padding: 2% 0;
+    }
+
+    #buscador input {
+        min-height: 20px;
+        font-size: 0.8rem;
+    }
+
+    #quantidade-resultados {
+        font-size: 0.8rem;
+    }
+
+    .marcar-receita {
+        border: 1vw solid #514613;
+    }
+
+    .marcar-receita::after {
+        left: 30%;
+    }
+
+    .resultado {
+        min-height: 150px;
+    }
+
+    .titulo-resultado {
+        font-size: 0.6rem;
+    }
+
+    .verso {
+        font-size: 0.6rem;
+    }
+
+    .topico-verso {
+        padding: 10px 0;
+        font-size: 0.6rem;
+    }
+
+    #conteudo-geral-individual {
+        font-size: 0.6rem;
+    }
+
+    #titulo-receita-individual {
+        font-size: 1rem;
+    }
+}

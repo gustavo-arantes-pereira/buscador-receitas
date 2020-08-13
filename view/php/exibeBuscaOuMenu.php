@@ -17,21 +17,25 @@
 
     function contadorPaginasSlider() {
         $quantidadeReceitas = contadorArrayPesquisa(); // Recupera a quantidade de receitas pesquisadas
-        $resultadoDivisao = (int) $quantidadeReceitas / 4; // Divide a quantidade de receitas por 4 (valor máximo de receitas que podem ser exibidas na tela), converto o resultado para um valor inteiro e armazeno na variável $resultadoDivisao.
+        $resultadoDivisao = intval($quantidadeReceitas / 4); // Divide a quantidade de receitas por 4 (valor máximo de receitas que podem ser exibidas na tela), converto o resultado para um valor inteiro e armazeno na variável $resultadoDivisao.
         $restoOperacao = $quantidadeReceitas % 4; // Divide a quantidade de receitas por 4 e armazena o resto da operação na variável $restoOperacao.
 
         if($resultadoDivisao == 0) // Com a conversão feita acima, o valor 0,75 (que neste caso seriam 3 receitas encontradas) por exemplo, é arredondado pra 0 e assim não mostraria nenhuma.
             $quantidadePaginas = 1; // Então por mais que não haja realmente nenhuma receita, haverá sempre 1 sessão carregada.
-        elseif($restoOperacao > 0 && $restoOperacao < 4) // 
-            $quantidadePaginas = $resultadoDivisao + 1;
-            
-        return $quantidadePaginas;
+        elseif($restoOperacao > 0 && $restoOperacao < 4) // Se houver resto (que se houver, sempre vai estar entre este intervalo).
+            $quantidadePaginas = $resultadoDivisao + 1; // Adiciona mais uma página no marcador.
+
+        return $quantidadePaginas; // Retorna a quantidade de páginas.
     }
 ?>
 
 <script>
     function quantidadeReceitas(){ // Converte a função php para javascript.
         return <?php print contadorArrayPesquisa() ?>
+    }
+
+    function quantidadePaginas(){ // Converte a função php para javascript.
+        return <?php print contadorPaginasSlider() ?>
     }
 </script>
 
@@ -43,21 +47,10 @@
     <title><?php print $pesquisa; ?> - Buscador de Receitas</title>
     <link rel="shortcut icon" type="image/x-png" href="../imagens/iconeBuscador.png">
     <link rel="stylesheet" href="../estilos/estiloExibir.css">
+    <link rel="stylesheet" href="../estilos/queriesExibe.css">
 </head>
 <body>
     <header id="cabecalho">
-        <div id="icone-menu">
-            <a><svg width="21.999999999999996" height="21.999999999999996" xmlns="http://www.w3.org/2000/svg">
-                <g>
-                    <line stroke="#000" class="firstLine" y2="4.146656" x2="25.477124" y1="4.146656" x1="-1.973854"
-                        stroke-width="3.5" />
-                    <line stroke="#000" class="secondLine" y2="11.151682" x2="25.607844" y1="11.020963" x1="-2.104574"
-                        stroke-width="3.5" />
-                    <line stroke="#000" class="thirdLine" y2="17.804165" x2="24.852663" y1="17.673446" x1="-1.683284"
-                        stroke-width="3.5" />
-                </g>
-            </svg></a>
-        </div>
         <div id="buscador">            
             <img src="../imagens/lupa.svg" alt="Lupa de pesquisa">
             <form method="GET" action="exibeBuscaOuMenu.php">
@@ -67,14 +60,14 @@
     </header>
     <main>                
         <div id="quantidade-resultados">
-            <b><?php print contadorArrayPesquisa() ?></b> resultados encontrados.
+            <b><?php print contadorArrayPesquisa() ?></b> resultados encontrados. 
         </div>
         <section class="exibe-receitas">
             <div class="slider">
                 <span class="mover-slider-esquerda"><img src="../imagens/arrow-left.svg" alt="Seta para esquerda"></span>
                 <ul class="indicador-paginas-slider">
                     <?php 
-                        for ($indicador = 1; $indicador <= contadorPaginasSlider(); $indicador++){
+                        for ($indicador = 1; $indicador <= contadorPaginasSlider(); $indicador++){ 
                             if($indicador == 1)
                                 print "<li class='ativo'>";
                             else
@@ -102,29 +95,19 @@
                                                 <div class='verso'>
                                                     <span class='expandir-resultado' onclick='montarSelecaoReceita(" . $contador . ")'>
                                                         <div class='arrow-dawn-resultado'>
-                                                            <svg width='60' height='20' xmlns='http://www.w3.org/2000/svg'>
-                                                                <g>
-                                                                    <rect fill='transparent' id='canvas_background' height='22' width='62' y='-1' x='-1'/>
-                                                                    <g display='none' overflow='visible' y='0' x='0' height='100%' width='100%' id='canvasGrid'>
-                                                                        <rect fill='url(#gridpattern)' stroke-width='0' y='0' x='0' height='100%' width='100%'/>
-                                                                    </g>
-                                                                </g>
-                                                                <g>
-                                                                    <path stroke='#fff' transform='rotate(89.98893737792969 29.986236572265625,9.979780197143553) ' id='svg_1' d='m31.01128,9.97979l-10.15053,-29.22613l18.25098,29.22613l-18.25098,29.22612l10.15053,-29.22612z' stroke-width='1.5' fill='#fff'/>
-                                                                </g>
-                                                            </svg>
+                                                            <img src='../imagens/arrow-dawn-resultado.svg' alt='Seta para baixo'>
                                                         </div>
                                                     </span>
                                                     <div class='ingredientes-resultado " . $classeIngredientes . "'>
                                                         <div class='topico-verso topico-ingredientes'>Ingredientes:</div>
                                                         <div class='ingredientes-texto'>";?>
                                                             <script type="text/javascript">
-                                                                var ingredientes = '<?php echo $row['ingredientes']; ?>';
-                                                                var ingredientesFormatados = ingredientes.replace(/;/g, '.</br>');
+                                                                var ingredientes = '<?php echo $row['ingredientes']; ?>'; // Armazena na variável ingredientes os ingredientes presentes nesta linha do array.
+                                                                var ingredientesFormatados = ingredientes.replace(/;/g, '.</br>'); // Substitui todos os ';' por '</br>', ou seja, aonde tem ponto e vírgula é colocado uma quebra de linha
 
-                                                                var classeIngredientes = document.querySelector('.<?php print $classeIngredientes ?> .ingredientes-texto');
+                                                                var classeIngredientes = document.querySelector('.<?php print $classeIngredientes ?> .ingredientes-texto'); // Seleciona a div alvo.
 
-                                                                classeIngredientes.insertAdjacentHTML('afterbegin', ingredientesFormatados);
+                                                                classeIngredientes.insertAdjacentHTML('afterbegin', ingredientesFormatados); // Insere no início interno da div alvo o HTML já formatado.
                                                             </script>
                                                         <?php print "</div>
                                                     </div>

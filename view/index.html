@@ -1,0 +1,26 @@
+<!-- Desenvolvido por Gustavo Arantes Pereira <https://github.com/gustavo-arantes-pereira> -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Receitas</title>
+    <link rel="shortcut icon" type="image/x-png" href="imagens/iconeBuscador.png">
+    <link rel="stylesheet" href="estilos/estiloPrincipal.css">
+    <link rel="stylesheet" href="estilos/queriesPrincipal.css">
+</head>
+<body>
+    <main id="container">
+        <div id="titulo">
+            <h1>RECEITAS</h1>
+        </div>
+        <div id="buscador">            
+            <img src="imagens/lupa.svg" alt="Lupa de pesquisa">
+            <form method="GET" action="php/exibeBuscaOuMenu.php">
+                <input type="text" size="30" autofocus name="pesquisa" required value="" placeholder="Buscar">                
+            </form>
+        </div>
+    </main>
+</body>
+</html>

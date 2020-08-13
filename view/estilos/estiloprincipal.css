@@ -9,19 +9,6 @@ body{
     font-family: Times New Roman, Serif, Sans-serif;
 }
 
-/* Início do header */
-
-#cabecalho {
-    width: 100%;
-    display: flex;
-}
-
-#icone-menu {
-    margin: 1% 0 0 1%;
-    cursor: pointer;
-}
-/* Fim do header */
-
 /* Inicio do main */
 
 #container {

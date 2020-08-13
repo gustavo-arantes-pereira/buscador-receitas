@@ -5,8 +5,49 @@ $(document).ready(function (){ // Executa a função apenas quando todo o docume
 
     // Início do bloco do slider --------------------------------------------------------------------------------------------
 
-    
+    let qtdPaginas = quantidadePaginas(), // Armazena a quantidade de páginas.
+        paginaAtual = 1; // Valor 1 pois o slider sempre iniciará na primeira página.
 
+    if (qtdPaginas == 1){ // Testa se o slider tem apenas uma página, caso haja, desabilita as setas direcionais do slider.
+        $('.mover-slider-esquerda').css({'display':'none'});
+        $('.mover-slider-direita').css({'display':'none'});
+    }else if(paginaAtual == 1)
+        $('.mover-slider-esquerda').css({'display':'none'});
+
+    $('.mover-slider-esquerda').click(function(){
+        if(qtdPaginas > 1 && paginaAtual <= qtdPaginas && paginaAtual > 1){        
+            let valorEixoXTransform = paginaAtual - 2,
+                valorTransform = "translate3d(-" + valorEixoXTransform + "00%, 0, 0)"
+            
+            $('.conteudo-slider').css({'transform' : valorTransform, 'transition' : '0.6s'});
+            paginaAtual--;
+            if(paginaAtual == 1)
+                $('.mover-slider-esquerda').css({'display':'none'});
+            if(paginaAtual >= 1){
+                $('.mover-slider-direita').css({'display':'block'});
+            }
+
+            $('.indicador-paginas-slider li.ativo').removeClass('ativo');
+            $('.indicador-paginas-slider li:nth-child(' + paginaAtual + ')').addClass('ativo');
+        }
+    });
+    
+    $('.mover-slider-direita').click(function(){ 
+        if(qtdPaginas > 1 && paginaAtual < qtdPaginas){
+            let valorTransform = "translate3d(-" + paginaAtual + "00%, 0, 0)";
+            
+            $('.conteudo-slider').css({'transform' : valorTransform, 'transition' : '0.6s'});
+            paginaAtual++;
+            console.log(qtdPaginas);
+            if(paginaAtual == qtdPaginas)
+                $('.mover-slider-direita').css({'display':'none'});
+            if(paginaAtual <= qtdPaginas)
+                $('.mover-slider-esquerda').css({'display':'block'});
+
+            $('.indicador-paginas-slider li.ativo').removeClass('ativo');
+            $('.indicador-paginas-slider li:nth-child(' + paginaAtual + ')').addClass('ativo');
+        }
+    });
 });
 
 function montarSelecaoReceita(marcador){ // A função recebe como parâmetro um número inteiro.

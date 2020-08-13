@@ -1,0 +1,11 @@
+<svg width='60' height='20' xmlns='http://www.w3.org/2000/svg'>
+    <g>
+        <rect fill='transparent' id='canvas_background' height='22' width='62' y='-1' x='-1'/>
+        <g display='none' overflow='visible' y='0' x='0' height='100%' width='100%' id='canvasGrid'>
+            <rect fill='url(#gridpattern)' stroke-width='0' y='0' x='0' height='100%' width='100%'/>
+        </g>
+    </g>
+    <g>
+        <path stroke='#fff' transform='rotate(89.98893737792969 29.986236572265625,9.979780197143553) ' id='svg_1' d='m31.01128,9.97979l-10.15053,-29.22613l18.25098,29.22613l-18.25098,29.22612l10.15053,-29.22612z' stroke-width='1.5' fill='#fff'/>
+    </g>
+</svg>
