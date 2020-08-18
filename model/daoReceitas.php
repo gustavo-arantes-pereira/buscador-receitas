@@ -29,28 +29,37 @@
                 $p_sql->bindValue(":ingredientes", $receita->getIngredientes());
                 $p_sql->bindValue(":preparo", $receita->getPreparo());
 
-                return $p_sql->execute();
+                $p_sql->execute();
+
+                $resultado = '1';
+                
+                return $resultado;
             } catch (Exception $erro) {
-                print "Ocorreu um erro ao tentar executar esta ação." . $erro;
+                return $erro;
             }
         }
 
-        public function editar(PojoReceitas $receita) {
+        public function editar($id, PojoReceitas $receita) {
             try {
                 $sql = "UPDATE receita set classificacao = :classificacao, nome = :nome, 
-                    ingredientes = :ingredientes, preparo = :preparo";
+                    ingredientes = :ingredientes, preparo = :preparo WHERE id = :id";
                 
                 $p_sql = Conexao::getInstance()->prepare($sql);
 
+                $p_sql->bindValue(":id", $id);
                 $p_sql->bindValue(":classificacao", $receita->getClassificacao());
                 $p_sql->bindValue(":nome", $receita->getNome());
                 $p_sql->bindValue(":ingredientes", $receita->getIngredientes());
                 $p_sql->bindValue(":preparo", $receita->getPreparo());
 
-                return $p_sql->execute();
+                $p_sql->execute();
+
+                $resultado = '1';
+
+                return $resultado;
             } catch (Exception $erro) {
-                print "Ocorreu um erro ao tentar executar esta ação." . $erro;
-            }            
+                return $erro;
+            }           
         }
 
         public function deletar($id) {
@@ -61,7 +70,11 @@
 
                 $p_sql->bindValue(":id", $id);
 
-                return $p_sql->execute();
+                $p_sql->execute();
+                
+                $resultado = '1';
+
+                return $resultado;
             } catch (\Throwable $erro) {
                 print "Ocorreu um erro ao tentar executar esta ação." . $erro;
             }

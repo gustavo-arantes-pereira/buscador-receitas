@@ -2,15 +2,10 @@
 
     class PojoReceitas {
 
-        private $id;
         private $classificacao;
         private $nome;
         private $ingredientes;
         private $preparo;
-
-        public function getId() {
-            return $this->id;
-        }
 
         public function getClassificacao() {
             return $this->classificacao;

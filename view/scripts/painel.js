@@ -68,11 +68,28 @@ $('.botao-buscar').click(function() {
     else {
         abreBuscar();
     }
-})
+});
 
-function resultado(x) {
-    let tabela = $('.tabela-adicionar');
-    if(x == 1) {
-        tabela.append('<th>')
-    }
-}
+$('.linha').ready(function (){ 
+    $('.linha').click(function() {
+        let quantidade = quantidadeReceitas(),
+            receita;
+
+        for (let i = 0; i <= quantidade; i++){
+            if ($(this).hasClass('linha' + i))
+                receita = i;
+
+            if ($('.linha' + i).hasClass('ativo'))
+                $('.linha' + i).removeClass('ativo');
+        }
+
+        $(this).addClass('ativo');
+        $('.bloco-manutencao').css({'display' : 'block'});  
+        $('.conteudo').css({'height' : calculaAlturaConteudo(2)});
+        carregaValorInputId(receita);     
+        carregaValorInputClassificacao(receita);
+        carregaValorInputNome(receita);
+        carregaValorInputIngredientes(receita);
+        carregaValorTextPreparo(receita);
+    });
+});

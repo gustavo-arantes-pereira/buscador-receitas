@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+    text-align: center;
+}
+
+#operacao {
+    display: none;
+}
+
+#conteudo-mensagem {
+    width: 60%;
+    margin: 4% auto;
+    padding: 2%;
+    border: 1px solid gray;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F7EDE2;
+}
+
+#titulo-mensagem {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 2%;
+}
+
+#mensagem {
+    font-size: 1rem;
+}
+
+a {
+    text-decoration: none;
+    border: 1px solid grey;
+    color: black;
+    padding: 5px;
+    box-shadow: 0px 2px 2px grey;
+    background-color: #F7EDE2;
+}
+
+a:hover {
+    box-shadow: none;
+}
